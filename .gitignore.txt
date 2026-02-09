@@ -1,0 +1,24 @@
+# data (avoid uploading raw datasets)
+data/raw/
+data/external/
+
+# outputs
+data/processed/*.csv
+data/processed/*.parquet
+reports/figures/
+
+# notebooks checkpoints
+.ipynb_checkpoints/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Power BI (optional: pbix can be big)
+*.pbix
