@@ -1,24 +1,36 @@
-# data (avoid uploading raw datasets)
-data/raw/
-data/external/
-
-# outputs
-data/processed/*.csv
-data/processed/*.parquet
-reports/figures/
-
-# notebooks checkpoints
-.ipynb_checkpoints/
-
-# python
+# Python cache and environments
 __pycache__/
 *.pyc
 .venv/
 venv/
+env/
 
-# OS
+# Jupyter
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# OS files
 .DS_Store
 Thumbs.db
 
-# Power BI (optional: pbix can be big)
+# Local raw and processed data
+data/*.csv
+data/*.xlsx
+data/*.xls
+data/*.zip
+data/**/*.csv
+data/**/*.xlsx
+data/**/*.xls
+data/**/*.zip
+!data/README.md
+
+# Local reports and generated outputs
+reports/figures/
+assets/screenshots/*.png
+assets/screenshots/*.jpg
+assets/screenshots/*.jpeg
+assets/screenshots/*.gif
+!assets/screenshots/.gitkeep
+
+# Power BI files can be large and belong in the separate dashboard project
 *.pbix

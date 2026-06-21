@@ -1,80 +1,153 @@
-# UK Online Retail Analysis (B2B Wholesale Case Study)
+# UK Online Retail Pandas Analysis
 
-## Project Overview
+## Project Summary
 
-This project analyzes a two-year UK online retail transaction dataset to evaluate sales performance, customer concentration, seasonality, and return behavior.
+This project uses Python, pandas, and Jupyter Notebook to analyse UK online retail transaction data. The analysis explores revenue trends, customer behaviour, product performance, country-level patterns, returns, cancellations, and practical business observations.
 
-The objective is to identify structural revenue drivers, assess return risk, and generate actionable business insights.
+## Purpose of This Repository
 
----
+This is a standalone Python / pandas exploratory data analysis project. It complements, but is separate from, my main UK Retail Power BI / BigQuery dashboard project.
 
-## Business Questions
+This repository demonstrates how I can use Python and pandas to clean, explore, analyse, and communicate insights from transactional retail data.
 
-1. What are the sales trends and seasonal patterns?
-2. Which products and customers contribute most to revenue?
-3. Are there any notable patterns in cancellations or returns?
+## Business Problem
 
----
+A retail business wants to understand sales performance, customer behaviour, product performance, and transaction patterns using historical order data.
 
-## Dataset
+The analysis is designed to answer practical commercial questions about revenue trends, customer concentration, product performance, country contribution, and data quality issues that need to be handled before reporting.
 
-Source: UCI Machine Learning Repository  
-Dataset: Online Retail II (2009–2011)  
-Transactions: ~1,067,000 records  
-Business Type: UK-based B2B wholesale retailer
+## Key Questions
 
----
+- How does revenue change over time?
+- Which products generate the most revenue?
+- Which customers contribute the most revenue?
+- Which countries contribute the most revenue?
+- Are sales concentrated among a small number of customers or products?
+- What data quality issues need to be considered before analysis?
+- What return or cancellation patterns should be reviewed separately from valid sales?
+
+## Dataset Overview
+
+The project uses the Online Retail II dataset, identified in the existing project documentation as sourced from the UCI Machine Learning Repository.
+
+Main fields used:
+
+- Invoice number
+- Stock code
+- Product description
+- Quantity
+- Invoice date
+- Unit price
+- Customer ID
+- Country
+
+The raw dataset is not intended to be uploaded to GitHub. See [data/README.md](data/README.md) for local setup instructions.
 
 ## Tools Used
 
-- Python (Pandas, Matplotlib)
+- Python
+- pandas
 - Jupyter Notebook
-- Git & GitHub
-- Markdown Documentation
+- matplotlib
+- openpyxl
 
----
+## Data Cleaning and Preparation
 
-## Key Insights
+The notebook performs and documents the following preparation steps:
 
-- Sales show strong recurring seasonality, peaking between August and November.
-- The November peak is primarily volume-driven.
-- The top 20% of customers contribute ~77% of total revenue, indicating a wholesale-driven structure.
-- Product revenue is diversified, with no single product contributing more than 2%.
-- Return behavior is not systemic; median customer return rate is 1.45%.
-- High return rates are driven by bulk wholesale order reversals rather than product defects.
+- loaded the two yearly worksheets from the Excel dataset
+- standardised column names
+- checked dataset shape, data types, missing values, and duplicate rows
+- converted invoice dates to datetime format
+- converted customer IDs to a nullable integer type where available
+- converted stock codes to text
+- created a revenue field from quantity and price
+- separated valid sales from cancellations and returns
+- filtered invalid quantity and price values for sales analysis
+- created month fields for time-based analysis
+- prepared grouped datasets for product, customer, country, and return analysis
 
----
+## Analysis Performed
 
-## Business Implications
+- revenue trend analysis
+- monthly sales analysis
+- top product analysis
+- top customer analysis
+- country-level revenue analysis
+- customer revenue concentration
+- product revenue concentration
+- cancellation and return review
 
-- Revenue and return risk are concentrated among key wholesale accounts.
-- Post-holiday return spikes reflect commercial behavior rather than quality issues.
-- Seasonal demand requires careful inventory planning.
+## Key Findings
 
----
+- Finding 1: [insert finding]
+- Finding 2: [insert finding]
+- Finding 3: [insert finding]
 
-## Recommendations
+The existing notebook outputs suggest seasonal revenue patterns, customer concentration, and return/cancellation considerations, but final published findings should be checked against a fresh top-to-bottom notebook run before GitHub publication.
 
-- Optimize wholesale return policies.
-- Strengthen key account management.
-- Introduce incentive programs to stabilize order volume and reduce return risk.
+## Business Recommendations
 
----
+- Monitor revenue trends by month to identify seasonal changes.
+- Review customer concentration risk, especially among high-value accounts.
+- Identify top products for stock planning, sales planning, and commercial review.
+- Investigate returns or cancelled invoices separately from valid sales.
+- Use customer and product insights to support commercial decision-making.
 
-## Project Structure
+## Limitations
 
-01_ask.md
-02_prepare.md
-03_process.md
-04_analyze.md
-05_share.md
-notebooks/
-data/
+- The dataset is historical only.
+- The dataset does not include marketing cost data.
+- The dataset does not include customer demographic data.
+- Returns and cancelled invoices require careful handling.
+- Product descriptions may need further standardisation.
+- Findings should be validated with additional business context before being used for business decisions.
 
----
+## Future Improvements
 
-## Author
+- Add RFM customer segmentation.
+- Add cohort analysis.
+- Add automated data validation checks.
+- Compare pandas results with the Power BI / SQL version.
+- Convert repeated analysis steps into reusable Python functions.
+- Add more visualisations.
 
-Wayne Chan
-Aspiring Data Analyst (UK Market)  
-Specializing in Revenue & Customer Analytics
+## Repository Structure
+
+```text
+uk-online-retail-pandas-analysis/
+├── README.md
+├── CHANGELOG.md
+├── github_publish_checklist.md
+├── requirements.txt
+├── notebooks/
+│   ├── uk_online_retail_pandas_analysis.ipynb
+│   ├── 01_data_check.ipynb
+│   ├── 02_sales_trend.ipynb
+│   ├── 03_top_products_customers.ipynb
+│   └── 04_cancellations_returns.ipynb
+├── docs/
+│   ├── business_problem.md
+│   ├── data_cleaning_steps.md
+│   ├── analysis_summary.md
+│   └── limitations.md
+├── assets/
+│   └── screenshots/
+└── data/
+    └── README.md
+```
+
+## How to Run
+
+1. Clone the repository.
+2. Install the required packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+3. Download the Online Retail II dataset and place the Excel file in `data/raw/online_retail_II.xlsx`.
+4. Open `notebooks/uk_online_retail_pandas_analysis.ipynb`.
+5. Run the cells from top to bottom.
+
+Raw and processed data files should stay local and should not be committed to GitHub.
