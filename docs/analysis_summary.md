@@ -30,4 +30,6 @@ The returns section uses invoices beginning with `C` to review cancelled or retu
 
 ## Findings and Recommendations
 
-The notebook includes placeholders for final findings and recommendations. These should be completed only after confirming the outputs from a clean top-to-bottom run.
+The notebook validation run confirmed that the combined raw dataset contains 1,067,371 rows and the cleaned valid sales dataset contains 1,041,670 rows. It also confirmed that the top 10 filtered product codes account for 7.99% of filtered product revenue, while the top 20% of identified customers account for 77.24% of identified customer revenue.
+
+Seasonal, country-level, and return-specific written observations should be checked against the final notebook outputs before publishing.

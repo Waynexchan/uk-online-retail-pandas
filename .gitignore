@@ -25,6 +25,7 @@ data/**/*.zip
 !data/README.md
 
 # Local reports and generated outputs
+reports/*.docx
 reports/figures/
 assets/screenshots/*.png
 assets/screenshots/*.jpg

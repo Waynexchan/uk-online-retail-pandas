@@ -80,11 +80,13 @@ The notebook performs and documents the following preparation steps:
 
 ## Key Findings
 
-- Finding 1: [insert finding]
-- Finding 2: [insert finding]
-- Finding 3: [insert finding]
+- The combined raw dataset contains 1,067,371 rows before filtering.
+- After excluding cancellations/returns and non-positive quantity or price values, the valid sales dataset contains 1,041,670 rows.
+- The top 10 filtered product codes account for 7.99% of filtered product revenue.
+- The top 20% of identified customers account for 77.24% of identified customer revenue.
+- Additional seasonal, country-level, and returns observations should be confirmed from the final notebook outputs before publishing.
 
-The existing notebook outputs suggest seasonal revenue patterns, customer concentration, and return/cancellation considerations, but final published findings should be checked against a fresh top-to-bottom notebook run before GitHub publication.
+These findings are based on a local validation run of `notebooks/uk_online_retail_pandas_analysis.ipynb`. Final written observations should still be checked against a fresh top-to-bottom notebook run before GitHub publication.
 
 ## Business Recommendations
 
